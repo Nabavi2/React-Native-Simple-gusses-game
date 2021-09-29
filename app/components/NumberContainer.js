@@ -15,13 +15,17 @@ const styles = StyleSheet.create({
     borderColor: Colors.pink,
     padding: 8,
     marginVertical: 20,
-    borderRadius: 14,
+    borderRadius: 15,
     alignItems: "center",
     justifyContent: "center",
   },
   number: {
     color: Colors.pink,
     fontSize: 30,
+    alignItems: "center",
+    justifyContent: "center",
+    alignSelf: "center",
+    alignContent: "center",
   },
 });
 export default NumberContainer;
