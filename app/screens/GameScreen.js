@@ -4,6 +4,7 @@ import { StyleSheet, View, Text, Button, Alert } from "react-native";
 import NumberContainer from "../components/NumberContainer";
 import Card from "../components/Card";
 import Colors from "../constants/Colors";
+import TextTitle from "./../components/TextTitle";
 const generatRoundBetween = (min, max, exclude) => {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -55,7 +56,7 @@ function GameScreen(props) {
 
   return (
     <View style={styles.screen}>
-      <Text> Opponent's Gues </Text>
+      <TextTitle> Opponent's Gues </TextTitle>
       <NumberContainer> {currentGuess}</NumberContainer>
       <Card style={styles.buttonContainer}>
         <View style={{ width: "30%" }}>
