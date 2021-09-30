@@ -5,6 +5,7 @@ import NumberContainer from "../components/NumberContainer";
 import Card from "../components/Card";
 import Colors from "../constants/Colors";
 import TextTitle from "./../components/TextTitle";
+import MainButton from "../components/MainButton";
 const generatRoundBetween = (min, max, exclude) => {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -59,20 +60,12 @@ function GameScreen(props) {
       <TextTitle> Opponent's Gues </TextTitle>
       <NumberContainer> {currentGuess}</NumberContainer>
       <Card style={styles.buttonContainer}>
-        <View style={{ width: "30%" }}>
-          <Button
-            color={Colors.purple}
-            title="LOWER"
-            onPress={nextGuessHandler.bind(this, "lower")}
-          />
-        </View>
-        <View style={{ width: "40%" }}>
-          <Button
-            color={Colors.pink}
-            title="GREATER"
-            onPress={nextGuessHandler.bind(this, "greater")}
-          />
-        </View>
+        <MainButton onPress={nextGuessHandler.bind(this, "lower")}>
+          LOWER
+        </MainButton>
+        <MainButton onPress={nextGuessHandler.bind(this, "greater")}>
+          GREATER
+        </MainButton>
       </Card>
     </View>
   );
@@ -84,11 +77,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttonContainer: {
-    flexDirection: "row-reverse",
+    flexDirection: "row",
     justifyContent: "space-around",
     marginTop: 20,
-    width: 300,
-    maxWidth: "80%",
+    width: 400,
+    maxWidth: "90%",
   },
 });
 

@@ -13,19 +13,16 @@ const styles = StyleSheet.create({
   container: {
     borderWidth: 2,
     borderColor: Colors.pink,
-    padding: 8,
-    marginVertical: 20,
-    borderRadius: 15,
+    padding: 10,
+    borderRadius: 10,
+    marginVertical: 10,
     alignItems: "center",
     justifyContent: "center",
+    alignSelf: "center",
   },
   number: {
     color: Colors.pink,
     fontSize: 30,
-    alignItems: "center",
-    justifyContent: "center",
-    alignSelf: "center",
-    alignContent: "center",
   },
 });
 export default NumberContainer;
