@@ -1,5 +1,13 @@
 import React from "react";
-import { View, Text, StyleSheet, Button, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  Image,
+  ScrollView,
+  Dimensions,
+} from "react-native";
 import TextTitle from "../components/TextTitle";
 import Colors from "../constants/Colors";
 import TextBody from "../components/TextBody";
@@ -7,23 +15,27 @@ import MainButton from "../components/MainButton";
 
 function GameOverScreen(props) {
   return (
-    <View style={styles.screen}>
-      <TextTitle> The Game is Over</TextTitle>
-
-      <Image
-        style={styles.image}
-        source={require("../../assets/success.png")}
-      />
-
-      <View style={styles.resultContainer}>
-        <TextBody style={styles.resultText}>
-          Your phone needed
-          <Text style={styles.heilight}> {props.roundsNumber}</Text> rounds to
-          guess number <Text style={styles.heilight}> {props.userNumber}</Text>
-        </TextBody>
+    <ScrollView>
+      <View style={styles.screen}>
+        <TextTitle> The Game is Over</TextTitle>
+        <View style={styles.imageContainer}>
+          <Image
+            style={styles.image}
+            source={require("../../assets/success.png")}
+            resizeMode="cover"
+          />
+        </View>
+        <View style={styles.resultContainer}>
+          <TextBody style={styles.resultText}>
+            Your phone needed
+            <Text style={styles.heilight}> {props.roundsNumber}</Text> rounds to
+            guess number{" "}
+            <Text style={styles.heilight}> {props.userNumber}</Text>
+          </TextBody>
+        </View>
+        <MainButton onPress={props.onRestart}>New Game</MainButton>
       </View>
-      <MainButton onPress={props.onRestart}>New Game</MainButton>
-    </View>
+    </ScrollView>
   );
 }
 const styles = StyleSheet.create({
@@ -31,15 +43,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    paddingVertical: 10,
+  },
+  imageContainer: {
+    width: Dimensions.get("window").width * 0.7,
+    height: Dimensions.get("window").width * 0.7,
+    borderRadius: (Dimensions.get("window").width * 0.7) / 2,
+    borderWidth: 3,
+    borderColor: "black",
+    overflow: "hidden",
+    marginVertical: Dimensions.get("window").height / 30,
   },
   image: {
-    height: 270,
-    width: 270,
-    borderRadius: 135,
-    borderWidth: 3,
-    overflow: "hidden",
-    borderColor: Colors.black,
-    marginVertical: 20,
+    width: "100%",
+    height: "100%",
   },
   heilight: {
     color: Colors.pink,
